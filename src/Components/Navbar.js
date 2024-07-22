@@ -14,19 +14,21 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+            <Link className="nav-link" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
             <Link className="nav-link" to="/about">{props.aboutText}</Link>
             </li>
             
         </ul>
-        {/* <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button className="btn btn-primary" type="submit">Search</button>
-        </form> */}
+        <div className="d-flex">
+            <button className="bg-primary rounded mx-2" onClick={()=>{props.toggle("primary")}} style={{height:"30px",width:"30px",cursor:'pointer'}}></button>
+            <button className="bg-danger rounded mx-2"  onClick={()=>{props.toggle("danger")}} style={{height:"30px",width:"30px",cursor:'pointer'}}></button>
+            <button className="bg-success rounded mx-2" onClick={()=>{props.toggle("success")}} style={{height:"30px",width:"30px",cursor:'pointer'}}></button>
+            <button className="bg-warning rounded mx-2" onClick={()=>{props.toggle("warning")}} style={{height:"30px",width:"30px",cursor:'pointer'}}></button>
+        </div>
         <div className="form-check form-switch">
-            <input className="form-check-input" onClick={props.toggle} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+            <input className="form-check-input" onClick={()=>{props.toggle(null)}} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
             <label className={`form-check-label text-${props.mode==="dark"?"light":"dark"}`} htmlFor="flexSwitchCheckDefault">Enable Darkmode</label>
         </div>
 
